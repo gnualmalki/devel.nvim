@@ -1,9 +1,9 @@
--- Name        :  devel (1.0)
+-- Name        :  devel (1.1)
 -- Description :  a dark neovim colorscheme for devels
 -- Author      :  makestatic
 -- License     :  MIT
 
-local colors = {
+local c = {
     black      = "#000000",
     gray       = "#808080",
     white      = "#ffffff",
@@ -15,7 +15,6 @@ local colors = {
     brown      = "#A0522D",
 }
 
-local c = colors
 
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") == 1 then
@@ -82,4 +81,8 @@ for group, opts in pairs(groups) do
 end
 
 -- who needs treesittah?
-vim.cmd("TSDisable highlight")
+vim.schedule(function()
+if vim.fn.exists(":TSDisable") == 2 then
+    vim.cmd("TSDisable highlight")
+end
+end)
