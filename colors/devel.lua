@@ -1,4 +1,4 @@
--- devel (1.4)
+-- devel (1.5)
 -- https://github.com/makestatic/devel.nvim
 
 local c = {
@@ -68,12 +68,46 @@ local groups = {
 	Macro             = { fg = c.magenta },
 	Todo              = { fg = c.magenta, bold = true },
 	Delimiter         = { fg = c.white },
+
+	CompileModeMessage          = { underline = true },
+	CompileModeMessageRow       = { fg = c.white },
+	CompileModeMessageCol       = { fg = c.red },
+	CompileModeError            = { fg = c.red },
+	CompileModeWarning          = { fg = c.magenta },
+	CompileModeInfo             = { fg = c.blue },
+	CompileModeCommandOutput    = { fg = c.green },
+	CompileModeDirectoryMessage = { fg = c.magenta },
+	CompileModeOutputFile       = { fg = c.green },
+	CompileModeCheckResult      = { fg = c.red, bold = true },
+	CompileModeCheckTarget      = { fg = c.green },
+	CompileModeErrorLocus       = { link = "Visual" },
 }
 
+-- terminal colors (fix: use vim.g)
+local g = vim.g
+g.terminal_color_0  = c.black
+g.terminal_color_1  = c.red
+g.terminal_color_2  = c.green
+g.terminal_color_3  = c.blue
+g.terminal_color_4  = c.blue
+g.terminal_color_5  = c.magenta
+g.terminal_color_6  = c.cyan
+g.terminal_color_7  = c.white
+g.terminal_color_8  = c.black
+g.terminal_color_9  = c.red
+g.terminal_color_10 = c.green
+g.terminal_color_11 = c.blue
+g.terminal_color_12 = c.blue
+g.terminal_color_13 = c.magenta
+g.terminal_color_14 = c.cyan
+g.terminal_color_15 = c.white
+
+-- apply highlight groups
 for group, opts in pairs(groups) do
 	vim.api.nvim_set_hl(0, group, opts)
 end
 
+-- treesitter link map
 local ts = {
 	["@keyword"]               = "Keyword",
 	["@keyword.return"]        = "Keyword",
@@ -126,3 +160,5 @@ for group, link in pairs(ts) do
 		vim.api.nvim_set_hl(0, group, link)
 	end
 end
+
+vim.api.nvim_set_hl(0, '@lsp.type.comment', {})
