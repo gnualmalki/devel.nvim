@@ -10,7 +10,7 @@ A Neovim devel colorscheme for devels
 
 ```lua
 {
-    "makestatic/devel.nvim",
+    "gnualmalki/devel.nvim",
     lazy = false,
     priority = 1000,
     config = function()
@@ -27,7 +27,7 @@ A Neovim devel colorscheme for devels
 ## License
 
 ```
-Copyright (c) 2025 Ali Almalki <github.com/makestatic>
+Copyright (c) 2025 Ali Almalki <gnualmalki@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
